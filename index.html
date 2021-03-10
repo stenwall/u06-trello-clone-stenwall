@@ -25,7 +25,11 @@
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="css/styles.min.css">
+
 	<title>Todos!</title>
+
 </head>
 
 <body>
@@ -74,7 +78,7 @@
 					<h2 class="card-header h3">To do</h2>
 					<div id="todo-list-body" class="card-body list-body">
 
-						<div class="card h-auto mb-3">
+						<div class="card h-auto mb-3 todo-card .ui-state-active">
 							<div class="card-body">
 								<h3 class="card-title h6">Learn the basics of Bootstrap</h3>
 								<button type="button" class="btn btn-sm btn-secondary">Edit</button>
@@ -82,7 +86,7 @@
 						</div>
 
 
-						<div class="card h-auto mb-3">
+						<div class="card h-auto mb-3 todo-card">
 							<div class="card-body">
 								<h3 class="card-title h6">Make my own jQuery widget</h3>
 								<button type="button" class="btn btn-sm btn-secondary">Edit</button>
@@ -101,7 +105,7 @@
 					<h2 class="card-header h3">Doing</h2>
 					<div id="doing-list-body" class="card-body list-body">
 
-						<div class="card h-auto mb-3">
+						<div class="card h-auto mb-3 todo-card">
 							<div class="card-body">
 								<h3 class="card-title h6">Make a color scheme</h3>
 								<button type="button" class="btn btn-sm btn-secondary">Edit</button>
