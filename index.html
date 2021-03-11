@@ -6,30 +6,30 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<!-- jQuery CDN -->
+	<script defer src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+	<!-- jQuery UI CDN -->
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+		integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+		crossorigin="anonymous"></script>
+
 	<!-- Bootstrap JS CDN -->
 	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
 		crossorigin="anonymous"></script>
 
-	<!-- jQuery CDN -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-	<!-- jQuery UI CDN -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
-		integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
-		crossorigin="anonymous"></script>
-
 	<script defer type="text/javascript" src="js/script.js"></script>
-
-	<!-- Bootstrap CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
 	<!-- jQuery UI CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
 		integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
 		crossorigin="anonymous" />
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
 	<link rel="stylesheet" type="text/css" href="css/styles.min.css">
 
@@ -38,6 +38,26 @@
 </head>
 
 <body>
+
+	<!-- display modal -->
+	<div id="dialog">
+		<div id="tabs">
+			<ul>
+				<li><a href="#tabs-1">Description</a></li>
+				<li><a href="#tabs-2">Deadline</a></li>
+				<li><a href="#tabs-3">Colors</a></li>
+			</ul>
+			<div id="tabs-1">
+				<p>The tab for the description</p>
+			</div>
+			<div id="tabs-2">
+				<p>The tab for adding a deadline</p>
+			</div>
+			<div id="tabs-3">
+				<p>The tab for changing the colors</p>
+			</div>
+		</div>
+	</div>
 
 	<!-- Navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
@@ -136,10 +156,7 @@
 		</div>
 	</div>
 
-	<!-- display modal -->
-	<div id="dialog" title="Basic dialog">
-		<p>Test</p>
-	</div>
+
 
 
 </body>
