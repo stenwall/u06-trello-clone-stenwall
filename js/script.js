@@ -90,13 +90,14 @@ $(function () {
     open: function () {
       $datepicker.datepicker({
         minDate: +1,
-        dateFormat: "d/m, -y",
+        dateFormat: "DD, d MM, yy",
         firstDay: 1,
         showAnim: "blind",
-        altField: ".deadline-date",
+		altField: ".deadline-date",
         altFormat: "d/m, -y",
-        onSelect: function (altFormat) {
+        onSelect: function (date) {
           $cardFooters.show();
+          $(".deadline-date").text(date);
         },
       });
     },
