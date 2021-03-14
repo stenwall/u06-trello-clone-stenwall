@@ -49,9 +49,11 @@
 			</ul>
 			<div id="tabs-1">
 				<p>The tab for the description</p>
+				<input type="text" id="task-title">
+				<textarea id="task-desc"></textarea>
 			</div>
 			<div id="tabs-2">
-				<p>Set deadline: <input type="text" id="datepicker"></p>
+				<p>Set deadline: <input type="text" class="datepicker"></p>
 			</div>
 			<div id="tabs-3">
 				<p>The tab for changing the colors</p>
@@ -59,7 +61,7 @@
 		</div>
 	</div>
 
-	<!-- Navbar -->
+	<!-- navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
 		<div class="container-fluid">
 			<h1 class="navbar-brand mb-0 h1">Todos!</h1>
@@ -117,10 +119,9 @@
 						<div class="card h-auto mb-3 todo-card">
 							<div class="card-body">
 								<h3 class="card-title h6">Make my own jQuery widget</h3>
-								<button type="button" class="btn btn-sm btn-secondary edit-btn">Edit</button>
 							</div>
 							<div class="card-footer">
-								<small class="text-muted"></small>
+								<small class="text-muted">Deadline: <span class="deadline-date"></span></small>
 							</div>
 						</div>
 
@@ -139,7 +140,6 @@
 						<div class="card h-auto mb-3 todo-card">
 							<div class="card-body">
 								<h3 class="card-title h6">Make a color scheme</h3>
-								<button type="button" class="btn btn-sm btn-secondary edit-btn">Edit</button>
 							</div>
 							<div class="card-footer">
 								<small class="text-muted">Deadline: <span class="deadline-date"></span></small>
