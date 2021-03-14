@@ -1,7 +1,6 @@
 const $dialog = $("#dialog");
-const $editBtn = $(".edit-btn");
+const $todoCards = $(".todo-card");
 const $tabs = $("#tabs");
-const $datepicker = $("#datepicker");
 const $cardFooters = $(".card-footer");
 
 $(function () {
@@ -14,6 +13,68 @@ $(function () {
     .disableSelection();
 
   $cardFooters.hide();
+
+  $todoCards.on("click", function () {
+    //based on which we click, get the current values
+    const $thisCard = $(this);
+    let task = $thisCard.find("h3").text();
+    let desc = $thisCard.data("desc");
+    let $deadlineDate = $thisCard.find(".deadline-date");
+    let bgColor = $thisCard.find(".card-body").css("background-color");
+
+    $("#task-title").val(task);
+    $("#task-desc").val(desc);
+
+    $("#dialog").dialog({
+      autoOpen: false,
+      resizable: false,
+      modal: true,
+      height: "auto",
+      width: "60vw",
+      title: "Edit todo",
+      show: {
+        effect: "fade",
+        duration: 400,
+        size: 50,
+      },
+      hide: {
+        effect: "puff",
+        duration: 500,
+        size: 50,
+      },
+      buttons: [
+        {
+          text: "Save",
+          class: "btn btn-sm btn-secondary",
+          click: function () {
+            $dialog.bootstrapDialog("close");
+          },
+        },
+      ],
+      open: function () {
+        const $datepicker = $(this).find(".datepicker");
+        let currentDate = $datepicker.datepicker("getDate");
+        if (currentDate != null) {
+        }
+
+        $.datepicker.parseDate("yy-mm-dd", "2007-01-26");
+        //   let $cardFooter = $(this).find(".card-footer");
+        $datepicker.datepicker({
+          minDate: +1,
+          dateFormat: "DD, d MM, yy",
+          firstDay: 1,
+          showAnim: "blind",
+          altField: ".deadline-date",
+          altFormat: "d/m, -y",
+          onSelect: function ($date) {
+            //   $cardFooter.show();
+            const $shortDate = $datepicker.formatDate("d/m, -y", $date);
+            $deadlineDate.text($shortDate);
+          },
+        });
+      },
+    });
+  });
 
   $.widget("ui.bootstrapDialog", $.ui.dialog, {
     classes: {
@@ -58,16 +119,33 @@ $(function () {
         text: "Save",
         class: "btn btn-sm btn-secondary",
         click: function () {
-          $dialog.bootstrapDialog("close").removeClass(".ui-button");
-        },
-        create: function () {
-          $dialog
-            .bootstrapDialog()
-            .find(".ui-button")
-            .removeClass(".ui-button");
+          $dialog.bootstrapDialog("close");
         },
       },
     ],
+    open: function () {
+      const $datepicker = $(this).find(".datepicker");
+      let currentDate = $datepicker.datepicker("getDate");
+      if (currentDate != null) {
+      }
+
+      $.datepicker.parseDate("yy-mm-dd", "2007-01-26");
+      $.datepicker.formatDate("yy-mm-dd", new Date(2007, 1 - 1, 26));
+      //   let $cardFooter = $(this).find(".card-footer");
+      $datepicker.datepicker({
+        minDate: +1,
+        dateFormat: "DD, d MM, yy",
+        firstDay: 1,
+        showAnim: "blind",
+        altField: ".deadline-date",
+        altFormat: "d/m, -y",
+        onSelect: function (date) {
+          //   $cardFooter.show();
+          $deadlineDate.text(date);
+        },
+      });
+    },
+
     // buttons: {
     //   Save: function () {
     //     $(this).bootstrapDialog("close");
@@ -87,20 +165,22 @@ $(function () {
     //     class: "btn btn-sm",
     //   },
     // },
-    open: function () {
-      $datepicker.datepicker({
-        minDate: +1,
-        dateFormat: "DD, d MM, yy",
-        firstDay: 1,
-        showAnim: "blind",
-        altField: ".deadline-date",
-        altFormat: "d/m, -y",
-        onSelect: function (date) {
-          $cardFooters.show();
-          $(".deadline-date").text(date);
-        },
-      });
-    },
+
+    // buttons: [
+    //   {
+    //     text: "Save",
+    //     class: "btn btn-sm btn-secondary",
+    //     click: function () {
+    //       $dialog.bootstrapDialog("close").removeClass(".ui-button");
+    //     },
+    //     create: function () {
+    //       $dialog
+    //         .bootstrapDialog()
+    //         .find(".ui-button")
+    //         .removeClass(".ui-button");
+    //     },
+    //   },
+    // ],
   });
 
   // .extend($.ui.dialog.prototype.options.classes, {
@@ -132,21 +212,20 @@ $(function () {
   //     "ui-tabs-active": "active",
   //   });
 
-  $editBtn.on("click", () => {
-    $dialog.bootstrapDialog("open");
-  });
+  //   $editBtn.on("click", (event) => {
+  //     $dialog.bootstrapDialog("open");
+  //   });
 
-  //   $editBtn.on('click', function () {
-  //     const id = $(this).data("id");
+  //   $editBtn.on("click", function () {
+  //     const id = $(this);
   //     $(id).dialog("open");
   //   });
 
   //   //opens the appropriate dialog
-  //   $(".opener").click(function () {
+  //   $editBtn.click(function () {
   //     //takes the ID of appropriate dialogue
   //     var id = $(this).data("id");
   //     //open dialogue
-  //     $(id).dialog("open");
+  //     $(id).bootstrapDialog("open");
   //   });
-  
 });
