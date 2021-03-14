@@ -93,7 +93,7 @@ $(function () {
         dateFormat: "DD, d MM, yy",
         firstDay: 1,
         showAnim: "blind",
-		altField: ".deadline-date",
+        altField: ".deadline-date",
         altFormat: "d/m, -y",
         onSelect: function (date) {
           $cardFooters.show();
@@ -135,4 +135,18 @@ $(function () {
   $editBtn.on("click", () => {
     $dialog.bootstrapDialog("open");
   });
+
+  //   $editBtn.on('click', function () {
+  //     const id = $(this).data("id");
+  //     $(id).dialog("open");
+  //   });
+
+  //   //opens the appropriate dialog
+  //   $(".opener").click(function () {
+  //     //takes the ID of appropriate dialogue
+  //     var id = $(this).data("id");
+  //     //open dialogue
+  //     $(id).dialog("open");
+  //   });
+  
 });
