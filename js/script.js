@@ -12,6 +12,8 @@ $(function () {
     })
     .disableSelection();
 
+  $cardFooters.hide();
+
   $tabs.tabs();
 
   $dialog.dialog({
@@ -46,6 +48,7 @@ $(function () {
       // based on which we click, get the current values
       // const $thisCard = $(this);
       const $thisCardFooter = $thisCard.find(".card-footer");
+
       let $task = $thisCard.find("h3").text();
       let $desc = $thisCard.data("desc");
       let $deadlineDate = $thisCard.find(".deadline-date");
@@ -53,13 +56,14 @@ $(function () {
 
       $("#task-title").val($task);
       $("#task-desc").text($desc);
-      const $datepicker = $(this).find(".datepicker");
+
+      //   const $datepicker = $(this).find(".datepicker");
       // let currentDate = $datepicker.datepicker("getDate");
       // if (currentDate != null) {
       // }
 
       // $.datepicker.parseDate("yy-mm-dd", "2007-01-26");
-      $datepicker.datepicker({
+      $(".datepicker").datepicker({
         minDate: +1,
         dateFormat: "DD, d MM, yy",
         firstDay: 1,
@@ -73,10 +77,8 @@ $(function () {
     },
   });
 
-  $cardFooters.hide();
-
   $todoCards.on("click", function (event) {
-    $dialog.data("id", event.target.id);
+    $dialog.data("id", event.currentTarget.id);
     $dialog.dialog("open");
   });
 });
