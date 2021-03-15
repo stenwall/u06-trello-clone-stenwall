@@ -57,21 +57,22 @@ $(function () {
       $("#task-title").val($task);
       $("#task-desc").text($desc);
 
-      //   const $datepicker = $(this).find(".datepicker");
+      const $datepicker = $(this).find(".datepicker");
       // let currentDate = $datepicker.datepicker("getDate");
       // if (currentDate != null) {
       // }
 
       // $.datepicker.parseDate("yy-mm-dd", "2007-01-26");
-      $(".datepicker").datepicker({
+      $datepicker.datepicker({
         minDate: +1,
         dateFormat: "DD, d MM, yy",
         firstDay: 1,
         showAnim: "blind",
         onSelect: function ($date) {
           $thisCardFooter.show();
-          const $shortDate = $datepicker.formatDate("d/m, -y", $date);
-          $deadlineDate.text($shortDate);
+          const $dateObj = $.datepicker.parseDate("DD, d MM, yy", $date);
+          const $howLongToDeadline = $.format.prettyDate($dateObj);
+          $deadlineDate.text($howLongToDeadline);
         },
       });
     },
