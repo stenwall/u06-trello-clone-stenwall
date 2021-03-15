@@ -50,7 +50,7 @@
 			<div id="tabs-1">
 				<p>The tab for the description</p>
 				<input type="text" id="task-title">
-				<textarea id="task-desc"></textarea>
+				<textarea id="task-desc" data-desc=""></textarea>
 			</div>
 			<div id="tabs-2">
 				<p>Set deadline: <input type="text" class="datepicker"></p>
@@ -105,7 +105,7 @@
 					<h2 class="card-header h3">To do</h2>
 					<div id="todo-list-body" class="card-body list-body">
 
-						<div class="card h-auto mb-3 todo-card .ui-state-active">
+						<div id="card1" class="card h-auto mb-3 todo-card .ui-state-active">
 							<div class="card-body">
 								<h3 class="card-title h6">Learn the basics of Bootstrap</h3>
 								<button type="button" class="btn btn-sm btn-secondary edit-btn">Edit</button>
@@ -116,7 +116,7 @@
 						</div>
 
 
-						<div class="card h-auto mb-3 todo-card">
+						<div id="card2" class="card h-auto mb-3 todo-card">
 							<div class="card-body">
 								<h3 class="card-title h6">Make my own jQuery widget</h3>
 							</div>
@@ -137,7 +137,7 @@
 					<h2 class="card-header h3">Doing</h2>
 					<div id="doing-list-body" class="card-body list-body">
 
-						<div class="card h-auto mb-3 todo-card">
+						<div id="card3"class="card h-auto mb-3 todo-card">
 							<div class="card-body">
 								<h3 class="card-title h6">Make a color scheme</h3>
 							</div>
