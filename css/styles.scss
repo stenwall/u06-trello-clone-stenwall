@@ -2,6 +2,14 @@
   cursor: pointer;
 }
 
+.card-footer {
+  padding: 0.3rem, 0.3rem;
+  small {
+    font-size: 0.8rem;
+    text-align: left;
+  }
+}
+
 .ui-widget-header {
   font-family: var(--bs-font-sans-serif);
   font-weight: 500;
