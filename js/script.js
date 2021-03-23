@@ -67,23 +67,17 @@ $(function () {
         $datepicker.datepicker("setDate", $deadlineObj);
       }
 
-      //   let $currentDate;
-
-      //   if ($deadlineDate.data("current-date") != null) {
-      //     $currentDate = $deadlineDate.data("current-date", $dateObj);
-      //     $("#datepicker").val($currentDate);
-      //   }
-
-      //   dialogDatePicker.change(function (event) {
-      //     date = $(event.currentTarget).datepicker().val();
-      //     dialog.data({ ...dialogData, date });
-      //   })
-
       $datepicker.on("change", function (event) {
         let $thisCard = $($dialog.data("id"));
         const $date = $(event.currentTarget).datepicker().val();
         const $dateObj = $.datepicker.parseDate("DD, d MM, yy", $date);
         $thisCard.data("date", $dateObj);
+      });
+
+      $("#clear").on("click", function () {
+        $datepicker.datepicker("setDate", null);
+        $dialog.data("date", null);
+        $thisCard.find(".card-footer").hide();
       });
     },
 
@@ -111,11 +105,6 @@ $(function () {
   $(".todo-card").on("click", function (event) {
     $dialog.data("id", `#${event.currentTarget.id}`);
     $dialog.dialog("open");
-  });
-
-  $("#clear").on("click", function () {
-    $datepicker.datepicker("setDate", null);
-    $dialog.data("date", null);
   });
 });
 
