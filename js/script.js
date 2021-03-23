@@ -2,6 +2,7 @@ const $dialog = $("#dialog");
 const $todoCards = $(".todo-card");
 const $tabs = $("#tabs");
 const $cardFooters = $(".card-footer");
+let todoDataMap = new Map();
 
 $(function () {
   $("#todo-list-body, #doing-list-body, #done-list-body")
@@ -15,6 +16,16 @@ $(function () {
   $cardFooters.hide();
 
   $tabs.tabs();
+
+  const $datepicker = $(this).find(".datepicker");
+
+  $datepicker.datepicker({
+    minDate: +1,
+    dateFormat: "DD, d MM, yy",
+    firstDay: 1,
+    showAnim: "blind",
+    autoSize: true,
+  });
 
   $dialog.dialog({
     autoOpen: false,
@@ -38,48 +49,71 @@ $(function () {
         text: "Save",
         class: "btn btn-sm btn-secondary",
         click: function () {
+          //   $(this).dialog("close").remove();
           $(this).dialog("close");
         },
       },
     ],
     open: function () {
-      const $thisCardId = $(this).data("id");
-      const $thisCard = $("#" + $thisCardId);
-      // based on which we click, get the current values
-      // const $thisCard = $(this);
-      const $thisCardFooter = $thisCard.find(".card-footer");
-
-      let $task = $thisCard.find("h3").text();
-      let $desc = $thisCard.data("desc");
-      let $deadlineDate = $thisCard.find(".deadline-date");
+      const $thisCard = $($dialog.data("id"));
+      //   const $thisCardFooter = $thisCard.find(".card-footer");
+      const $task = $thisCard.find("h3").text();
+      const $desc = $thisCard.data("desc");
+      const $deadlineObj = $thisCard.data("date");
       // let bgColor = $thisCard.find(".card-body").css("background-color");
 
       $("#task-title").val($task);
-      $("#task-desc").text($desc);
+      $("#task-desc").val($desc);
 
-      const $datepicker = $(this).find(".datepicker");
-      // let currentDate = $datepicker.datepicker("getDate");
-      // if (currentDate != null) {
-      // }
+      if (!$deadlineObj) {
+        $datepicker.datepicker("refresh");
+      } else {
+        $datepicker.datepicker("setDate", $deadlineObj);
+      }
 
-      // $.datepicker.parseDate("yy-mm-dd", "2007-01-26");
-      $datepicker.datepicker({
-        minDate: +1,
-        dateFormat: "DD, d MM, yy",
-        firstDay: 1,
-        showAnim: "blind",
-        onSelect: function ($date) {
-          $thisCardFooter.show();
-          const $dateObj = $.datepicker.parseDate("DD, d MM, yy", $date);
-          const $howLongToDeadline = $.format.prettyDate($dateObj);
-          $deadlineDate.text($howLongToDeadline);
-        },
+      //   let $currentDate;
+
+      //   if ($deadlineDate.data("current-date") != null) {
+      //     $currentDate = $deadlineDate.data("current-date", $dateObj);
+      //     $("#datepicker").val($currentDate);
+      //   }
+
+      //   dialogDatePicker.change(function (event) {
+      //     date = $(event.currentTarget).datepicker().val();
+      //     dialog.data({ ...dialogData, date });
+      //   })
+
+      $datepicker.on("change", function (event) {
+        let $thisCard = $($dialog.data("id"));
+        const $date = $(event.currentTarget).datepicker().val();
+        const $dateObj = $.datepicker.parseDate("DD, d MM, yy", $date);
+        $thisCard.data("date", $dateObj);
       });
+    },
+
+    close: function () {
+      const $thisCard = $($dialog.data("id"));
+      const $dateObj = $thisCard.data("date");
+
+      let $task = $("#task-title").val();
+      $thisCard.find("h3").text($task);
+
+      let $desc = $("#task-desc").text();
+      $thisCard.data("desc", $desc);
+
+      if ($dateObj) {
+        $datepicker.datepicker("setDate", $dateObj);
+        $thisCard.find(".card-footer").show();
+      }
+
+      let $deadlineDate = $thisCard.find(".deadline-date");
+      const $howLongToDeadline = $.format.prettyDate($dateObj);
+      $deadlineDate.text($howLongToDeadline);
     },
   });
 
   $todoCards.on("click", function (event) {
-    $dialog.data("id", event.currentTarget.id);
+    $dialog.data("id", `#${event.currentTarget.id}`);
     $dialog.dialog("open");
   });
 });
