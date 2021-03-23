@@ -1,8 +1,7 @@
 const $dialog = $("#dialog");
-const $todoCards = $(".todo-card");
-const $tabs = $("#tabs");
-const $cardFooters = $(".card-footer");
-let todoDataMap = new Map();
+const $datepicker = $(".datepicker");
+
+$(".card-footer").hide();
 
 $(function () {
   $("#todo-list-body, #doing-list-body, #done-list-body")
@@ -13,11 +12,7 @@ $(function () {
     })
     .disableSelection();
 
-  $cardFooters.hide();
-
-  $tabs.tabs();
-
-  const $datepicker = $(this).find(".datepicker");
+  $("#tabs").tabs();
 
   $datepicker.datepicker({
     minDate: +1,
@@ -32,7 +27,7 @@ $(function () {
     resizable: false,
     modal: true,
     height: "auto",
-    width: "60vw",
+    width: "50vw",
     title: "Edit todo",
     show: {
       effect: "fade",
@@ -56,7 +51,6 @@ $(function () {
     ],
     open: function () {
       const $thisCard = $($dialog.data("id"));
-      //   const $thisCardFooter = $thisCard.find(".card-footer");
       const $task = $thisCard.find("h3").text();
       const $desc = $thisCard.data("desc");
       const $deadlineObj = $thisCard.data("date");
@@ -66,7 +60,7 @@ $(function () {
       $("#task-desc").val($desc);
 
       if (!$deadlineObj) {
-        $datepicker.datepicker("refresh");
+        $datepicker.datepicker("setDate", null);
       } else {
         $datepicker.datepicker("setDate", $deadlineObj);
       }
@@ -112,9 +106,14 @@ $(function () {
     },
   });
 
-  $todoCards.on("click", function (event) {
+  $(".todo-card").on("click", function (event) {
     $dialog.data("id", `#${event.currentTarget.id}`);
     $dialog.dialog("open");
+  });
+
+  $("#clear").on("click", function () {
+    $datepicker.datepicker("setDate", null);
+    $dialog.data("date", null);
   });
 });
 
