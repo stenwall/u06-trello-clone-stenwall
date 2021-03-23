@@ -88,7 +88,7 @@ $(function () {
       let $task = $("#task-title").val();
       $thisCard.find("h3").text($task);
 
-      let $desc = $("#task-desc").text();
+      let $desc = $("#task-desc").val();
       $thisCard.data("desc", $desc);
 
       if ($dateObj) {
