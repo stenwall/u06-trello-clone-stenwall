@@ -1,5 +1,5 @@
 const $dialog = $("#dialog");
-const $datepicker = $(".datepicker");
+const $datepicker = $("#datepicker");
 
 $(".card-footer").hide();
 
@@ -24,7 +24,6 @@ $(function () {
 
   $dialog.dialog({
     autoOpen: false,
-    resizable: false,
     modal: true,
     height: "auto",
     width: "50vw",
@@ -49,6 +48,9 @@ $(function () {
         },
       },
     ],
+    create: function () {
+      $(".ui-dialog-titlebar-close").hide();
+    },
     open: function () {
       const $thisCard = $($dialog.data("id"));
       const $task = $thisCard.find("h3").text();

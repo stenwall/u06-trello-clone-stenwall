@@ -23,8 +23,10 @@
 	<!-- jQuery plugin dateFormat -->
 	<script defer type="text/javascript" src="js/jquery-dateformat.min.js"></script>
 
+	<!-- My script -->
 	<script defer type="text/javascript" src="js/script.js"></script>
 
+	<!-- My styling -->
 	<link rel="stylesheet" type="text/css" href="css/styles.min.css">
 
 	<!-- jQuery UI CSS -->
@@ -51,12 +53,20 @@
 				<li><a href="#tabs-3">Colors</a></li>
 			</ul>
 			<div id="tabs-1">
-				<p>The tab for the description</p>
-				<input type="text" id="task-title">
-				<textarea id="task-desc"></textarea>
+				<div class="mb-3">
+					<label for="task-title" class="form-label">Task</label>
+					<input type="text" id="task-title" class="form-control" autocomplete="off">
+				</div>
+				<div class="mb-3">
+					<label for="task-desc" class="form-label">Description</label>
+					<textarea id="task-desc" class="form-control" placeholder="Describe your task here..." autocomplete="off"></textarea>
+				</div>
 			</div>
 			<div id="tabs-2">
-				<p>Set deadline: <input type="text" id="datepicker" class="datepicker"></p>
+				<div class="mb-3">
+					<label for="datepicker" class="form-label">Set deadline</label>
+					<input type="text" id="datepicker" class="form-control" autocomplete="off">
+				</div>
 				<button id="clear" class="btn btn-sm btn-secondary">Clear deadline</button>
 			</div>
 			<div id="tabs-3">
