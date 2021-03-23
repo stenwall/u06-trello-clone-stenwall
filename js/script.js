@@ -26,7 +26,7 @@ $(function () {
     autoOpen: false,
     modal: true,
     height: "auto",
-    width: "50vw",
+    width: "30rem",
     title: "Edit todo",
     show: {
       effect: "fade",
@@ -94,11 +94,10 @@ $(function () {
       if ($dateObj) {
         $datepicker.datepicker("setDate", $dateObj);
         $thisCard.find(".card-footer").show();
+        let $deadlineDate = $thisCard.find(".deadline-date");
+        const $howLongToDeadline = $.format.prettyDate($dateObj);
+        $deadlineDate.text($howLongToDeadline);
       }
-
-      let $deadlineDate = $thisCard.find(".deadline-date");
-      const $howLongToDeadline = $.format.prettyDate($dateObj);
-      $deadlineDate.text($howLongToDeadline);
     },
   });
 
