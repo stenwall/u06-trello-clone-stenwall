@@ -1,5 +1,6 @@
 const $dialog = $("#dialog");
 const $datepicker = $("#datepicker");
+const $colorpicker = $("#colorpicker");
 
 $(".card-footer").hide();
 
@@ -79,22 +80,24 @@ $(function () {
         $dialog.data("date", null);
         $thisCard.find(".card-footer").hide();
       });
+
+      $colorpicker.colorpicker();
     },
 
     close: function () {
       const $thisCard = $($dialog.data("id"));
       const $dateObj = $thisCard.data("date");
 
-      let $task = $("#task-title").val();
+      const $task = $("#task-title").val();
       $thisCard.find("h3").text($task);
 
-      let $desc = $("#task-desc").val();
+      const $desc = $("#task-desc").val();
       $thisCard.data("desc", $desc);
 
       if ($dateObj) {
         $datepicker.datepicker("setDate", $dateObj);
         $thisCard.find(".card-footer").show();
-        let $deadlineDate = $thisCard.find(".deadline-date");
+        const $deadlineDate = $thisCard.find(".deadline-date");
         const $howLongToDeadline = $.format.prettyDate($dateObj);
         $deadlineDate.text($howLongToDeadline);
       }
@@ -106,4 +109,3 @@ $(function () {
     $dialog.dialog("open");
   });
 });
-
