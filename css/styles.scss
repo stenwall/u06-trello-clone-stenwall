@@ -15,6 +15,10 @@
   }
 }
 
+.todo-card-body {
+  background-color: white;
+}
+
 #tabs {
   border: none;
   ul {
@@ -84,3 +88,83 @@ textarea {
 //   background-color: #f8f8f8;
 //   resize: none;
 // }
+
+#colorpicker {
+  display: block;
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.sp-original-input-container .sp-add-on {
+  width: 40px !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+
+  .sp-colorize {
+    border: 1px solid #a2a3a4;
+  }
+}
+
+.sp-thumb-el {
+  border: 1px solid #a2a3a4 !important;
+}
+
+// colorpicker
+
+// .palette-container {
+//   border-color: #586067;
+//   &:hover, :focus, :active {
+//     border-color: #586067;
+//     // background-color: #6c757d;
+//   }
+// }
+
+// .sp-replacer {
+//   // box-sizing: border-box;
+//   display: block;
+//   width: 3.5rem;
+//   border-color: #dcddde;
+//   &:hover, :focus, :active {
+//     border-color: #dcddde;
+//     // background-color: #6c757d;
+//   }
+// }
+
+// .sp-replacer.sp-active {
+//   border-color: #dcddde;
+// }
+
+// .sp-input:focus  {
+//   border-color: #dcddde;
+// }
+
+// .sp-container, .sp-palette-container {
+//   border-color: #dcddde;
+//   // box-sizing: border-box;
+//   // width: fit-content;
+// }
+
+// .sp-palette .sp-thumb-el:hover, .sp-palette .sp-thumb-el.sp-thumb-active {
+//     border-color: #586067;
+// }
+
+// .sp-picker-container , .sp-palette-container {
+//     float:left;
+//     box-sizing: border-box;
+//     position: relative;
+//     padding: 10px;
+//     // width: 200px;
+//     // height: 100%;
+//     padding-bottom: 300px;
+//     margin-bottom: -290px;
+// }
+
+// .sp-cf:before, .sp-cf:after {
+//   content: "";
+//   display: grid;
+//   // grid-template-rows: repeat(6, 1fr);
+// }
+// .sp-cf:after {
+//   clear: both; }
+// .sp-cf {
+//   *zoom: 1; }
