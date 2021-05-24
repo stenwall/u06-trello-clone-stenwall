@@ -69,13 +69,6 @@ $(function () {
       const $desc = $thisCard.data('desc');
       const $deadlineObj = $thisCard.data('date');
       const $cardBody = $thisCard.find('.todo-card-body');
-      let $colorstring;
-      // const $thisDialog = $dialog.instance();
-      const $titleBar = $('.ui-dialog-titlebar');
-      // const $thisTitleBar = $thisDialog.find('.ui-dialog-titlebar');
-      // .css('background-color', 'darkgrey');
-      // console.log(this);
-      // console.log($thisDialog);
       const $cardColor = $cardBody.css('background-color');
 
       $colorpicker.val($cardColor);
@@ -111,18 +104,11 @@ $(function () {
         palette: [
           ['white', 'papayawhip', 'blanchedalmond', 'wheat', 'moccasin'],
           ['linen', 'lavenderblush', 'mistyrose', 'lavender', 'gainsboro'],
-          [
-            'mintcream',
-            'azure',
-            'honeydew',
-            'lightgoldenrodyellow',
-            'lemonchiffon',
-          ],
+          ['mintcream', 'azure', 'honeydew', 'lightgoldenrodyellow', 'lemonchiffon'],
         ],
 
         change: function (color) {
           const $colorhex = color.toHexString();
-          $colorstring = color.toString();
           $cardBody.css('background-color', $colorhex);
         },
       });
