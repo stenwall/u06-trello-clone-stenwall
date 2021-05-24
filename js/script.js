@@ -1,8 +1,17 @@
 const $dialog = $('#dialog');
 const $datepicker = $('#datepicker');
 const $colorpicker = $('#colorpicker');
+const $superBtn = $('#super-btn');
 
 $('.card-footer').hide();
+
+// custom widget
+$.widget('custom.superBtn', $.ui.button, {
+  _create: function () {
+    this.element.addClass('btn-sm btn-secondary');
+    return this._super();
+  },
+});
 
 $(function () {
   $('#todo-list-body, #doing-list-body, #done-list-body')
@@ -13,6 +22,8 @@ $(function () {
     .disableSelection();
 
   $('#tabs').tabs();
+
+  $('.btn').superBtn();
 
   $datepicker.datepicker({
     minDate: +1,

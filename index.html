@@ -20,14 +20,12 @@
         integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
         crossorigin="anonymous"></script>
 
-    <!-- jQuery plugin dateFormat -->
-    <script defer type="text/javascript" src="js/jquery-dateformat.min.js"></script>
-
     <!-- Spectrum CDN -->
     <script defer src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
 
+    <!-- jQuery plugin dateFormat -->
+    <script defer type="text/javascript" src="js/jquery-dateformat.min.js"></script>
     <!-- My script -->
-    <!-- <script defer type="text/javascript" src="js/custom-widget.js"></script> -->
     <script defer type="text/javascript" src="js/script.js"></script>
 
     <!-- jQuery UI CSS -->
@@ -42,13 +40,6 @@
     <!-- Spectrum CSS -->
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css">
-
-    <!-- Spectrum colorpicker CSS -->
-    <!-- <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css"> -->
-
-    <!-- Huebee colorpicker CSS-->
-    <!-- <link rel="stylesheet" href="https://unpkg.com/huebee@2/dist/huebee.min.css"> -->
 
     <!-- My styling -->
     <link rel="stylesheet" type="text/css" href="css/styles.min.css">
@@ -83,13 +74,13 @@
                     <label for="datepicker">deadline</label>
                     <input type="text" id="datepicker" autocomplete="off" placeholder="(click here to set a deadline)">
                 </div>
-                <button id="clear" class="btn btn-sm btn-secondary">Clear deadline</button>
+                <button id="clear" class="btn">Clear deadline</button>
             </div>
             <div id="tabs-3">
                 <p>The tab for changing the colors</p>
                 <div class="mb-3 picker-cont">
                     <label for="colorpicker">color</label>
-                    <input id="colorpicker" value="white" placeholder="(click here to choose color)">
+                    <input id="colorpicker" value="white">
                 </div>
             </div>
         </div>
@@ -99,32 +90,6 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
         <div class="container-fluid">
             <h1 class="navbar-brand mb-0 h1">Todos!</h1>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
         </div>
     </nav>
 
@@ -134,12 +99,11 @@
 
             <!-- to do lsit -->
             <div class="col">
-
                 <div class="card border bg-light h-100">
                     <h2 class="card-header h3">To do</h2>
                     <div id="todo-list-body" class="card-body list-body">
-
-                        <div id="card1" class="card h-auto mb-3 todo-card .ui-state-active">
+                        <!-- placeholder card #1 -->
+                        <div id="card1" class="card h-auto mb-3 todo-card">
                             <div class="card-body todo-card-body">
                                 <h3 class="card-title h6">Learn the basics of Bootstrap</h3>
                             </div>
@@ -147,8 +111,7 @@
                                 <small class="text-muted">Deadline: <span class="deadline-date"></span></small>
                             </div>
                         </div>
-
-
+                        <!-- placeholder card #2 -->
                         <div id="card2" class="card h-auto mb-3 todo-card">
                             <div class="card-body todo-card-body">
                                 <h3 class="card-title h6">Make my own jQuery widget</h3>
@@ -157,19 +120,16 @@
                                 <small class="text-muted">Deadline: <span class="deadline-date"></span></small>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
 
             <!-- doing list -->
             <div class="col">
-
                 <div class="card border bg-light h-100">
                     <h2 class="card-header h3">Doing</h2>
                     <div id="doing-list-body" class="card-body list-body">
-
+                        <!-- placeholder card #3 -->
                         <div id="card3" class="card h-auto mb-3 todo-card">
                             <div class="card-body todo-card-body">
                                 <h3 class="card-title h6">Make a color scheme</h3>
@@ -178,20 +138,15 @@
                                 <small class="text-muted">Deadline: <span class="deadline-date"></span></small>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
 
             <!-- done list -->
             <div class="col">
-
                 <div class="card border bg-light h-100">
                     <h2 class="card-header h3">Done</h2>
-                    <div id="done-list-body" class="card-body list-body">
-
-                    </div>
+                    <div id="done-list-body" class="card-body list-body"></div>
                 </div>
             </div>
 
