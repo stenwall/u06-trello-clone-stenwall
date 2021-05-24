@@ -4,6 +4,8 @@ School Assignment @ Chas Academy, class FWD20
 
 ---
 
+>In this assignment, you will build an application that works as a "kanban board", similar to e.g. [trello.com](https://trello.com/). Only frontend and no backend are to be implemented.
+
 ## Requirements
 
 As a user, you should be able to do the following:
