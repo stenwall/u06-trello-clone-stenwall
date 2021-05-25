@@ -31,7 +31,7 @@ The site is deployed on Github Pages: [chas-academy.github.io/u06-trello-clone-s
 
 ### Design
 
-I took the opportunity to implement Bootstrap, since I've never worked with is before. I had a lot of problems getting it to work with jQuery UI, even tough the latters documentation said it would be easy, using their `classes`-functionality.
+I took the opportunity to implement Bootstrap, since I've never worked with it before. I had a lot of problems getting it to work with jQuery UI, even tough the latter's documentation said it would be easy, using their `classes`-functionality.
 
 In the end, it's a mashup of Bootstrap, jQuery UI, Spectrum Colorpicker and then my own CSS, trying to fix it so it looked kind of the same.
 
